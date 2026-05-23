@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 4508818635596339709}
   - component: {fileID: 3898738951098024249}
   - component: {fileID: 1359617724944245204}
+  - component: {fileID: 7820793107561721590}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -267,6 +268,12 @@ MonoBehaviour:
   Combo_kill: 0
   Combo_kill_requirements: 5
   Combo_multiplier_max: 5
+  OnPlayerDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerRevived:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-6167345305311271168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +401,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DivinityLoader
   catalog: {fileID: 11400000, guid: 81bd280b7b72fb246bbf4639fbbc77de, type: 2}
   overrideDivinity: {fileID: 0}
+  applyOnStart: 1
+--- !u!114 &7820793107561721590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374890883616903343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92112a757e9ee3246a03631542fb8267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlessingLoader
+  catalog: {fileID: 11400000, guid: ca0c60a0ef9a17d49811138a618667e4, type: 2}
   applyOnStart: 1
 --- !u!1 &7302055164405593671
 GameObject:

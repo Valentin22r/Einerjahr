@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e8cf3378093724095896e3a77a406f, type: 3}
+  m_Name: Blessing_Speed
+  m_EditorClassIdentifier: Assembly-CSharp::BlessingData
+  displayName: Life Blessing
+  description: +10 Health Point
+  icon: {fileID: 0}
+  xpPerLevel: 50
+  maxLevel: 10
+  bonusHpPerLevel: 10
+  bonusStrengthPerLevel: 0
+  bonusStartBloodPerLevel: 0
+  bonusHpMultiplierPerLevel: 0
+  bonusStrengthMultiplierPerLevel: 1
+  prerequisites: []

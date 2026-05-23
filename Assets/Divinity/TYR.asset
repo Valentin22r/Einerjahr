@@ -20,8 +20,10 @@ MonoBehaviour:
   startBlood: 0
   bonusHPMultiplier: 1
   bonusStrengthMultiplier: 1
-  projectileSpells: []
+  projectileSpells:
+  - {fileID: 11400000, guid: c79eaffd1c145fe4e8a84cd65ba9aca2, type: 2}
   defaultProjectileIndex: 0
-  groundSpells: []
+  groundSpells:
+  - {fileID: 11400000, guid: d545ae2bdc963ee45a53d5ef29274574, type: 2}
   defaultGroundIndex: 0
-  unlockAllSpells: 0
+  unlockAllSpells: 1
