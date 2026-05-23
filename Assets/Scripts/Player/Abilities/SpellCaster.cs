@@ -10,6 +10,8 @@ public class SpellCaster : MonoBehaviour
     public Transform muzzle;
     [Tooltip("Collider du player à ignorer pour le projectile (laisse vide = auto).")]
     public Collider playerCollider;
+    [Tooltip("Stats du joueur, source du sang dépensé pour caster. Si vide, on cherche sur le GameObject.")]
+    public PlayerStats playerStats;
 
     [Header("Slot Projectile (clic gauche / molette pour changer)")]
     public List<ProjectileSpellData> projectileSpells = new List<ProjectileSpellData>();
@@ -54,6 +56,7 @@ public class SpellCaster : MonoBehaviour
         targeter = GetComponent<GroundTargeter>();
         if (targeter == null) targeter = gameObject.AddComponent<GroundTargeter>();
         if (playerCollider == null) playerCollider = GetComponentInChildren<Collider>();
+        if (playerStats == null) playerStats = GetComponentInParent<PlayerStats>();
 
         for (int i = 0; i < projectileSpells.Count; i++)
             if (projectileSpells[i] != null && !projectileSpells[i].startsLocked) unlockedProjectiles.Add(i);
@@ -105,6 +108,32 @@ public class SpellCaster : MonoBehaviour
     {
         for (int i = 0; i < projectileSpells.Count; i++) unlockedProjectiles.Add(i);
         for (int i = 0; i < groundSpells.Count; i++) unlockedGrounds.Add(i);
+    }
+
+    /// <summary>
+    /// Rebuild the unlock sets from the current spell lists. Appelé après une injection
+    /// dynamique (DivinityLoader, save load, etc.).
+    /// </summary>
+    public void RebuildUnlockState(bool unlockAll = false)
+    {
+        unlockedProjectiles.Clear();
+        unlockedGrounds.Clear();
+
+        for (int i = 0; i < projectileSpells.Count; i++)
+        {
+            if (projectileSpells[i] == null) continue;
+            if (unlockAll || !projectileSpells[i].startsLocked) unlockedProjectiles.Add(i);
+        }
+        for (int i = 0; i < groundSpells.Count; i++)
+        {
+            if (groundSpells[i] == null) continue;
+            if (unlockAll || !groundSpells[i].startsLocked) unlockedGrounds.Add(i);
+        }
+
+        CurrentProjectileIndex = projectileSpells.Count > 0 ? Mathf.Clamp(defaultProjectileIndex, 0, projectileSpells.Count - 1) : 0;
+        CurrentGroundIndex = groundSpells.Count > 0 ? Mathf.Clamp(defaultGroundIndex, 0, groundSpells.Count - 1) : 0;
+        if (!IsProjectileUnlocked(CurrentProjectileIndex)) CycleProjectile(1);
+        if (!IsGroundUnlocked(CurrentGroundIndex)) CycleGround(1);
     }
 
     [ContextMenu("Lock All (sauf défaut)")]
@@ -166,11 +195,20 @@ public class SpellCaster : MonoBehaviour
         return -1;
     }
 
+    bool TryConsumeBlood(float cost)
+    {
+        if (playerStats == null) return true;
+        if (playerStats.Blood < cost) return false;
+        playerStats.Blood -= cost;
+        return true;
+    }
+
     void CastProjectile()
     {
         var s = CurrentProjectile;
         if (s == null || s.projectilePrefab == null) return;
         if (!IsProjectileUnlocked(CurrentProjectileIndex)) return;
+        if (!TryConsumeBlood(s.bloodCost)) return;
         projectileNextCastTime = Time.time + s.cooldown;
 
         bool crit = Random.value < s.critChance;
@@ -283,8 +321,14 @@ public class SpellCaster : MonoBehaviour
         float x = 12f;
         float y = Screen.height - 12f - h * 2f;
 
-        GUI.Label(new Rect(x, y, w, h), $"[Wheel] Tir : {proj}  ({CurrentProjectileIndex + 1}/{projectileSpells.Count})", style);
-        GUI.Label(new Rect(x, y + h, w, h), $"[RMB+Wheel] Sol : {ground}  ({CurrentGroundIndex + 1}/{groundSpells.Count})", style);
+        string projCost = CurrentProjectile != null ? $" — coût {CurrentProjectile.bloodCost:F0} sang" : "";
+        string groundCost = CurrentGround != null ? $" — coût {CurrentGround.bloodCost:F0} sang" : "";
+        string blood = playerStats != null ? $"Sang : {playerStats.Blood:F0}" : "";
+
+        if (!string.IsNullOrEmpty(blood))
+            GUI.Label(new Rect(x, y - h, w, h), blood, style);
+        GUI.Label(new Rect(x, y, w, h), $"[Wheel] Tir : {proj}  ({CurrentProjectileIndex + 1}/{projectileSpells.Count}){projCost}", style);
+        GUI.Label(new Rect(x, y + h, w, h), $"[RMB+Wheel] Sol : {ground}  ({CurrentGroundIndex + 1}/{groundSpells.Count}){groundCost}", style);
 
         if (targeter.IsActive)
         {
@@ -301,6 +345,7 @@ public class SpellCaster : MonoBehaviour
 
         if (s == null || s.aoeEffectPrefab == null) return;
         if (!IsGroundUnlocked(CurrentGroundIndex)) return;
+        if (!TryConsumeBlood(s.bloodCost)) return;
         aoeNextCastTime = Time.time + s.cooldown;
 
         bool crit = Random.value < s.critChance;
