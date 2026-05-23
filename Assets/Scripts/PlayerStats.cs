@@ -5,6 +5,7 @@ public class PlayerStats : MonoBehaviour
 {
     [Header("Player Stats")]
     public float HP = 100;
+    public float MaxHP = 100;
     public float Blood = 0;
     public float Strength = 10;
 

@@ -23,6 +23,10 @@ public class SpellCaster : MonoBehaviour
     [Tooltip("Indicateur par défaut si le spell n'en définit pas un.")]
     public GameObject defaultGroundIndicatorPrefab;
 
+    [Header("Bonus de spell en faible vie")]
+    [Tooltip("À 0 HP, les dégâts des spells sont multipliés par (1 + lowHpDamageBonus). À full HP, multiplicateur = 1. Linéaire.")]
+    [Min(0f)] public float lowHpDamageBonus = 1f;
+
     [Header("Touches")]
     public Key cancelAoeKey = Key.Escape;
 
@@ -195,12 +199,11 @@ public class SpellCaster : MonoBehaviour
         return -1;
     }
 
-    bool TryConsumeBlood(float cost)
+    float LowHpDamageMultiplier()
     {
-        if (playerStats == null) return true;
-        if (playerStats.Blood < cost) return false;
-        playerStats.Blood -= cost;
-        return true;
+        if (playerStats == null || playerStats.MaxHP <= 0f) return 1f;
+        float missing = Mathf.Clamp01(1f - playerStats.HP / playerStats.MaxHP);
+        return 1f + missing * lowHpDamageBonus;
     }
 
     void CastProjectile()
@@ -208,18 +211,18 @@ public class SpellCaster : MonoBehaviour
         var s = CurrentProjectile;
         if (s == null || s.projectilePrefab == null) return;
         if (!IsProjectileUnlocked(CurrentProjectileIndex)) return;
-        if (!TryConsumeBlood(s.bloodCost)) return;
 
         int progLevel = SpellProgression.GetLevel(s.name);
         float progDmg = SpellProgression.DamageMultiplier(progLevel);
         float progRadius = SpellProgression.RadiusMultiplier(progLevel);
         float progCdMul = SpellProgression.CooldownMultiplier(progLevel);
+        float lowHpMul = LowHpDamageMultiplier();
 
         projectileNextCastTime = Time.time + s.cooldown * progCdMul;
 
         bool crit = Random.value < s.critChance;
         float scaleMul = crit ? s.critScaleMultiplier : 1f;
-        float damageMul = (crit ? s.critDamageMultiplier : 1f) * progDmg;
+        float damageMul = (crit ? s.critDamageMultiplier : 1f) * progDmg * lowHpMul;
         float radiusMul = (crit ? s.critRadiusMultiplier : 1f) * progRadius;
 
         float explosionRadius = s.explosionRadius * radiusMul;
@@ -330,14 +333,8 @@ public class SpellCaster : MonoBehaviour
         float x = 12f;
         float y = Screen.height - 12f - h * 2f;
 
-        string projCost = CurrentProjectile != null ? $" — coût {CurrentProjectile.bloodCost:F0} sang" : "";
-        string groundCost = CurrentGround != null ? $" — coût {CurrentGround.bloodCost:F0} sang" : "";
-        string blood = playerStats != null ? $"Sang : {playerStats.Blood:F0}" : "";
-
-        if (!string.IsNullOrEmpty(blood))
-            GUI.Label(new Rect(x, y - h, w, h), blood, style);
-        GUI.Label(new Rect(x, y, w, h), $"[Wheel] Tir : {proj}  ({CurrentProjectileIndex + 1}/{projectileSpells.Count}){projCost}", style);
-        GUI.Label(new Rect(x, y + h, w, h), $"[RMB+Wheel] Sol : {ground}  ({CurrentGroundIndex + 1}/{groundSpells.Count}){groundCost}", style);
+        GUI.Label(new Rect(x, y, w, h), $"[Wheel] Tir : {proj}  ({CurrentProjectileIndex + 1}/{projectileSpells.Count})", style);
+        GUI.Label(new Rect(x, y + h, w, h), $"[RMB+Wheel] Sol : {ground}  ({CurrentGroundIndex + 1}/{groundSpells.Count})", style);
 
         if (targeter.IsActive)
         {
@@ -354,18 +351,18 @@ public class SpellCaster : MonoBehaviour
 
         if (s == null || s.aoeEffectPrefab == null) return;
         if (!IsGroundUnlocked(CurrentGroundIndex)) return;
-        if (!TryConsumeBlood(s.bloodCost)) return;
 
         int progLevel = SpellProgression.GetLevel(s.name);
         float progDmg = SpellProgression.DamageMultiplier(progLevel);
         float progRadius = SpellProgression.RadiusMultiplier(progLevel);
         float progCdMul = SpellProgression.CooldownMultiplier(progLevel);
+        float lowHpMul = LowHpDamageMultiplier();
 
         aoeNextCastTime = Time.time + s.cooldown * progCdMul;
 
         bool crit = Random.value < s.critChance;
         float radius = s.radius * (crit ? s.critRadiusMultiplier : 1f) * progRadius;
-        float damage = s.damagePerTick * (crit ? s.critDamageMultiplier : 1f) * progDmg;
+        float damage = s.damagePerTick * (crit ? s.critDamageMultiplier : 1f) * progDmg * lowHpMul;
         float scale = s.effectScale * (crit ? s.critScaleMultiplier : 1f);
 
         if (crit && logCrits) Debug.Log($"[SpellCaster] CRIT AoE! {s.displayName} ×{s.critDamageMultiplier} damage, ×{s.critRadiusMultiplier} radius ({radius:F1} m)");

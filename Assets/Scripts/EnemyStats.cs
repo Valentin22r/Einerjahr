@@ -15,6 +15,8 @@ public class EnemyStats : MonoBehaviour
     public int mythrilDropMin = 0;
     [Tooltip("XP de compte donnée au kill.")]
     public int accountXpDrop = 5;
+    [Tooltip("HP rendus au joueur le plus proche au kill (heal). Le HP est capé à PlayerStats.MaxHP.")]
+    public float healOnKill = 5f;
 
     [Header("Objectifs")]
     [Tooltip("Si non vide, ce kill ne compte que pour les objectifs avec ce filterTag (ex. 'Boss').")]
@@ -40,7 +42,15 @@ public class EnemyStats : MonoBehaviour
         if (accountXpDrop > 0) AccountProgress.GrantXp(accountXpDrop);
         if (ObjectiveManager.Instance != null)
             ObjectiveManager.Instance.ReportProgress(ObjectiveType.KillEnemies, 1, objectiveFilterTag);
+        if (healOnKill > 0f) HealNearestPlayer();
         OnDeath?.Invoke();
         Destroy(gameObject);
+    }
+
+    void HealNearestPlayer()
+    {
+        var ps = Object.FindFirstObjectByType<PlayerStats>();
+        if (ps == null || ps.IsDead) return;
+        ps.HP = Mathf.Min(ps.MaxHP, ps.HP + healOnKill);
     }
 }

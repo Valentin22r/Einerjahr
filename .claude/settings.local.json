@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xxd \"C:/Users/Valentin/Desktop/UnityGame/Einerjahr/Assets/Scripts/Player/Abilities/PlayerAim.cs\")",
+      "Bash(xxd \"C:/Users/Valentin/Desktop/UnityGame/Einerjahr/Assets/Scripts/Player/NetworkPlayer.cs\")",
+      "Bash(xargs -I{} sh -c 'if git diff --quiet main..$\\(git merge-base main map\\) -- \"{}\" 2>/dev/null; then : ; else if ! git diff --quiet map..$\\(git merge-base main map\\) -- \"{}\" 2>/dev/null; then echo \"{}\"; fi; fi')",
+      "Bash(git show *)",
+      "Read(//tmp/**)"
+    ]
+  }
+}

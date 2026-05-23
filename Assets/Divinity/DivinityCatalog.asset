@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DivinityCatalog
   m_EditorClassIdentifier: Assembly-CSharp::DivinityCatalog
   divinities: []
-  defaultDivinity: {fileID: 0}
+  defaultDivinity: {fileID: 11400000, guid: f720aafb5e61c6f45836711d1423443d, type: 2}

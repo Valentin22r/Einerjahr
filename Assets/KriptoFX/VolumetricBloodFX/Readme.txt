@@ -13,7 +13,7 @@ My English is not very good, and if I made mistakes, you can write me :)
 1) For HDRP and URP you need to import patches from the folder "\Assets\KriptoFX\VolumetricBloodFX\URP and HDRP Patches"
 
 2) How to turn on DECALS in URP pipeline:
-   
+
     Add "Decal" render feature. https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@10.1/manual/urp-renderer-feature-how-to-add.html
 
 3) For all platforms required format "RGBA half" or compressed "RGB9e5 23 bit Shared Exponent Float" for textures with the name "blood_norm" and "blood_pos"

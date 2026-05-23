@@ -10,10 +10,6 @@ public class GroundSpellData : ScriptableObject
     [Tooltip("Si vrai, le spell démarre verrouillé. Appeler SpellCaster.UnlockGround pour le débloquer.")]
     public bool startsLocked = false;
 
-    [Header("Coût")]
-    [Tooltip("Coût en sang (PlayerStats.Blood) pour caster ce spell.")]
-    [Min(0f)] public float bloodCost = 25f;
-
     [Header("Prefabs")]
     [Tooltip("Prefab AoE persistant (Spells Pack / Spell_Storm, etc.).")]
     public GameObject aoeEffectPrefab;

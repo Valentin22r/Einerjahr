@@ -39,25 +39,38 @@ public class AoESpell : MonoBehaviour
     {
         float elapsed = 0f;
         var hits = new Collider[32];
-        var damaged = new HashSet<Damageable>();
+        var damagedDamageables = new HashSet<Damageable>();
+        var damagedEnemies = new HashSet<EnemyStats>();
 
         while (elapsed < duration)
         {
-            damaged.Clear();
+            damagedDamageables.Clear();
+            damagedEnemies.Clear();
             int n = Physics.OverlapSphereNonAlloc(transform.position, radius, hits, targetMask, QueryTriggerInteraction.Ignore);
             for (int i = 0; i < n; i++)
             {
-                var d = hits[i].GetComponentInParent<Damageable>();
-                if (d == null || d.IsDead || !damaged.Add(d)) continue;
-
                 Vector3 hitPoint = hits[i].ClosestPoint(transform.position + Vector3.up * 1f);
                 Vector3 normal = (hits[i].transform.position - transform.position);
                 normal.y = 0f;
                 if (normal.sqrMagnitude < 0.0001f) normal = Vector3.up;
                 else normal.Normalize();
 
-                bool killed = d.ApplyDamage(damagePerTick, hitPoint, normal);
-                if (killed) SpellProgression.GrantKill(sourceSpellId);
+                var d = hits[i].GetComponentInParent<Damageable>();
+                if (d != null)
+                {
+                    if (d.IsDead || !damagedDamageables.Add(d)) continue;
+                    bool killed = d.ApplyDamage(damagePerTick, hitPoint, normal);
+                    if (killed) SpellProgression.GrantKill(sourceSpellId);
+                    continue;
+                }
+
+                var e = hits[i].GetComponentInParent<EnemyStats>();
+                if (e != null && damagedEnemies.Add(e))
+                {
+                    int before = e.HP;
+                    e.TakeDamage(Mathf.RoundToInt(damagePerTick));
+                    if (e.HP <= 0 && before > 0) SpellProgression.GrantKill(sourceSpellId);
+                }
             }
 
             yield return new WaitForSeconds(tickInterval);

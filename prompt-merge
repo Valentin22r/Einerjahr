@@ -1,0 +1,26 @@
+Je veux que tu merge ma branch main et ma branch map.
+Dans ma branch main: il y a le bon player et dans la branch dev, il y a le system de spell
+Je veux que tu fusionne les deux systemes, que tu fasse en sorte que mon player guarde les stats qui sont dans main, et qu'il ai en plus le system de spell de la branch map,
+
+Je te redis tout ce qu'il doit y avoir dans le jeu :
+il y a deux phases: la phase lobby et la phase in game.
+
+Dans la phase lobby le player peut choisir entre des divinité pour la prochaine partie(les divinité lui donne des spells spéciaux ex: une divinité lui
+permet d'avoir le spell de tir foudre avec le spell de placement foudre, ...) les divinité donne un peu comme une class au joueur(ex: berserker, mage, healer, ...),
+améliorer son arme, invité d'autre joueur, choisir la difficulté de la game (plus c'est difficile, plus le spawn d'ennemie sera rapide), quitter le lobby et lancer la partie.
+
+Dans la partie jeu, le ou les joueurs devront se balader dans la map et remplir un objectifs ou plusieur objectif (ex: tuer un nombre d'ennemies, interagie avec un truc, trouver des item, ...)
+les joueurs peuvent tuer les ennemies grace a leur épées et leur spell de divinité. plus ils tueront de mob avec leur épées plus il auront une jauge de sans qui permet de lancer les spell qui doivent
+avoir un cout en sang, il peuvent se faire des dégats entre eux et a eux meme avec les spell qui ont un rayon supérieur a 0. Apres avoir fini leur objectifs, il devront aller dans une zone et tuer un
+maximum de mob avant de mourir (dans cette phase, les mob sont de plus en plus nombreux (capé a un max (pour les performance)) et auront de plus en plus d'HP et de dégats).
+ce system est deja dans le main mais plus le joueur se prend des dégats plus ses attaques a l'épée feront de dégats (si il regagne de la vie, sa rage diminue).
+plus le joueur fera de kill avec ces spell, plus ils seront fort et dévastateur ou plus rapide a cast ou plus gros, ...
+dans la dernière phase, les joueurs sont obliger de mourir pour retourner au lobby mais si un joueur meurt avant la fin de la partie, il sera en spectateur sur la vue d'un autre player ou sera en phantome
+dans la map, les autres joueurs en vie pourront réanime le joueur mort en intéragissant avec un item (une statue ou un truc dans le style)
+tu peux aussi recuperer des minerai sur des mob pour améliorer tes armes dans le lobby
+
+Chaque kill donne de l'expérience au joueur (exp pas partager entre les joueurs) et l'experience te fais passer des level de bénédiction qui améliore tes stats majeur de ta bénédiction (benediction du combat = strength)
+l'experience augmente aussi les level de ton compte ce qui te permet de débloquer plus benediction
+
+Le jeu est de 1 a 4 joueurs en passant par les serveurs steam de dev (gratuit)
+le jeux est host par un joueur et chacun amene son perso avec son expérience
