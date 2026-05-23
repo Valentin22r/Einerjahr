@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2f725d53cab41fb4a903a4afc68e662a
+timeCreated: 1487432392
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/0_Heightmap/JordanRiver(P).prefab
+  uploadId: 635875

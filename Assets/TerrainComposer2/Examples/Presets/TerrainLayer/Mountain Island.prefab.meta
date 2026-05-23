@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f47e52dbb31247e4c9d82af34e124700
+timeCreated: 1487861604
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/TerrainLayer/Mountain Island.prefab
+  uploadId: 635875

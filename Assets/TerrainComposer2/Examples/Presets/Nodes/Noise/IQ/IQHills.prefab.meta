@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2628b8ca648b98c458ad79a852a0954f
+timeCreated: 1474926798
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Noise/IQ/IQHills.prefab
+  uploadId: 635875

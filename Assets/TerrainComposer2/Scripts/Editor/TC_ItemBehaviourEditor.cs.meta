@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: e17a1812c102e754693f8c50c685b951
+timeCreated: 1466278224
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Scripts/Editor/TC_ItemBehaviourEditor.cs
+  uploadId: 635875

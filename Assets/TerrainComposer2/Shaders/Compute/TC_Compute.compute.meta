@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: baf5728f087a1844f8acdfbd335f8b03
+timeCreated: 1466278233
+licenseType: Store
+ComputeShaderImporter:
+  currentAPIMask: 4
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Shaders/Compute/TC_Compute.compute
+  uploadId: 635875

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b863756b0dfa26e4e9a44ffbc95d1263
+timeCreated: 1474903182
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Noise/Jordan/JordanRidgedRiver.prefab
+  uploadId: 635875

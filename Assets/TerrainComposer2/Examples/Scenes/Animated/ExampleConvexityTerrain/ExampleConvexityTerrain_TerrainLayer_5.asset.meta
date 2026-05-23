@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b6b5c516ea6c41b4ebb4185fddffc867
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Scenes/Animated/ExampleConvexityTerrain/ExampleConvexityTerrain_TerrainLayer_5.asset
+  uploadId: 635875

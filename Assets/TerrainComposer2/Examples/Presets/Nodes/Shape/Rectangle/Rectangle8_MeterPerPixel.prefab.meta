@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 961ec9c09be0e3f4f83be5d8d3515f6c
+timeCreated: 1474984878
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Shape/Rectangle/Rectangle8_MeterPerPixel.prefab
+  uploadId: 635875

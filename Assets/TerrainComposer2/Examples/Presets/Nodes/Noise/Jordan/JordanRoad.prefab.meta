@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2761975b26b940746b011155573428e0
+timeCreated: 1474899963
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Noise/Jordan/JordanRoad.prefab
+  uploadId: 635875

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f4b2ecd8865e83e4b94e6ea56c3d558e
+timeCreated: 1466621193
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/1_Splatmap/DesertRock.prefab
+  uploadId: 635875

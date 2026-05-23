@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 03f88c8e64ce54748a75d6323a0bddab
+timeCreated: 1466613454
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/0_Heightmap/MountainIsland.prefab
+  uploadId: 635875

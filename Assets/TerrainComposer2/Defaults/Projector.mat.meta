@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 67e69b74477a112489bf38fd1d7a863c
+timeCreated: 1498892262
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Defaults/Projector.mat
+  uploadId: 635875

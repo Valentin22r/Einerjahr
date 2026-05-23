@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9c11df7a8a7b07f46818bc362515c574
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Scenes/Animated/ExampleAnimatedTerrain4/ExampleAnimatedTerrain4_TerrainLayer_0.asset
+  uploadId: 635875

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8b2ba41867b58d34b8395d5369165fba
+timeCreated: 1474984598
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Shape/Circle/Circle1_MeterPerPixel.prefab
+  uploadId: 635875

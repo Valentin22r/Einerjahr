@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 92ac07b3442106d40a84d210ec364550
+timeCreated: 1470292171
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Scripts/Lists/TC_Image.cs
+  uploadId: 635875

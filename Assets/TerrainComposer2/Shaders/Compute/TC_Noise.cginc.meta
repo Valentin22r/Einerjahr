@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 739952a419278d140a7710627688da22
+timeCreated: 1466278228
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Shaders/Compute/TC_Noise.cginc
+  uploadId: 635875

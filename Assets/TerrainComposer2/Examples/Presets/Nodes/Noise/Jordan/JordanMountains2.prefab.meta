@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6b451b5904e6cdf4eaa4b219d3aa41fc
+timeCreated: 1474925684
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Noise/Jordan/JordanMountains2.prefab
+  uploadId: 635875

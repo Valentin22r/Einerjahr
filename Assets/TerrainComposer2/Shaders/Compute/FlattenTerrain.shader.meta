@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3c15b82ee5377f04788f34c1d703413c
+timeCreated: 1466278228
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Shaders/Compute/FlattenTerrain.shader
+  uploadId: 635875

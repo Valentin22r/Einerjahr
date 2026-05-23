@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e77861bc075687d43a0ad915fd4ce6a5
+timeCreated: 1474977254
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Noise/Ridged/RidgedMountains.prefab
+  uploadId: 635875

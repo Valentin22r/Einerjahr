@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 049f306ea95593c4d95e3d485d431853
+timeCreated: 1487868780
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/2_Colormap/GrassCanyon.prefab
+  uploadId: 635875

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 5e2cf2ab5b7d06b419448b1f934795e6
+timeCreated: 1490596170
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Scripts/Runtime/R_SerializationHelper.cs
+  uploadId: 635875

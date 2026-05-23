@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dac0ee41dfd75294e8a20e678dcb2093
+timeCreated: 1466710432
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/3_Trees/Single Placement.prefab
+  uploadId: 635875

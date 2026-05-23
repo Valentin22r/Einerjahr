@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xxd \"C:/Users/Valentin/Desktop/UnityGame/Einerjahr/Assets/Scripts/Player/Abilities/PlayerAim.cs\")",
+      "Bash(xxd \"C:/Users/Valentin/Desktop/UnityGame/Einerjahr/Assets/Scripts/Player/NetworkPlayer.cs\")"
+    ]
+  }
+}

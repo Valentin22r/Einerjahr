@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 664c5f31c9ba91d4a8fc65aeb48733c6
+timeCreated: 1466187881
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Scripts/Editor/TC_GenerateEditor.cs
+  uploadId: 635875

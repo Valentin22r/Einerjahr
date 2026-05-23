@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7000e3366d494c54fb4c1b2ffa6c0784
+timeCreated: 1487790268
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/4_Grass/GrassBuildings.prefab
+  uploadId: 635875

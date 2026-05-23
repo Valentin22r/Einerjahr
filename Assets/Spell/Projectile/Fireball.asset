@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35140ed7c97399419e6203a9c5d3e4a, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileSpellData
+  displayName: Fireball
+  startsLocked: 0
+  castFxPrefab: {fileID: 6881474406348169789, guid: 4f22658952fbb0a42865716c53e103b2, type: 3}
+  castFxScale: 0.1
+  castFxSpeed: 1
+  castFxLifetime: 1
+  projectilePrefab: {fileID: 1485987801625442810, guid: 0203a37b0f047a74794f252f4783d6b2, type: 3}
+  projectileScale: 1
+  projectileSpeed: 25
+  projectileDamage: 25
+  hitRadius: 0.025
+  lifeTime: 5
+  cooldown: 0.35
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  impactFxPrefab: {fileID: 7156317333231045241, guid: fb8d8f6d8dd5fe247a08487a0dbf3943, type: 3}
+  impactFxScale: 1
+  impactFxSpeed: 1
+  impactFxLifetime: 3
+  explosionRadius: 5
+  explosionDamage: 0
+  explosionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  critChance: 0.05
+  critDamageMultiplier: 5
+  critScaleMultiplier: 20
+  critRadiusMultiplier: 10
+  critMinExplosionRadius: 8

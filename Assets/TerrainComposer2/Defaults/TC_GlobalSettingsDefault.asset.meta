@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0755f735e296b68488bbe4283fb22b77
+timeCreated: 1473242348
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Defaults/TC_GlobalSettingsDefault.asset
+  uploadId: 635875

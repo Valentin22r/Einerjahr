@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f561499fcc7b88c41bb5df1421b226e9
+timeCreated: 1466327646
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/ReadMe.txt
+  uploadId: 635875

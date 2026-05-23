@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 9af1e75c8149e7044a3ea3a669fe0b1b
+timeCreated: 1466278223
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Scripts/Nodes/TC_NodeGroup.cs
+  uploadId: 635875

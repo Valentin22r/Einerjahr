@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1e5691b7ed4a2704b9867bbc9211ab7d
+timeCreated: 1466622006
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/1_Splatmap/GrassForestRock.prefab
+  uploadId: 635875

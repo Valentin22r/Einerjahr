@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a5209f2b6a4a13d4db30593d48ca96f6
+timeCreated: 1466893699
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/5_Objects/Tutorial1Island.prefab
+  uploadId: 635875

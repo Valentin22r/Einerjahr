@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 073077a3f8514ca4e89157e685458b75
+timeCreated: 1477162622
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Scripts/Misc/TC_Octree.cs
+  uploadId: 635875

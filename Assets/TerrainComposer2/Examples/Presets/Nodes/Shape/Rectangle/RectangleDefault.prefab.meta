@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 57022c8070199094294cb19c30855f27
+timeCreated: 1474984991
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Shape/Rectangle/RectangleDefault.prefab
+  uploadId: 635875

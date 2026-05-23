@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f26a354e3b44877448bdcda232c0a279
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 184623
+  packageName: Path Painter II
+  packageVersion: 2.1.12
+  assetPath: Assets/3D Haven/Path Painter II/Editor/Engine/020/PathPainter.xml
+  uploadId: 919514

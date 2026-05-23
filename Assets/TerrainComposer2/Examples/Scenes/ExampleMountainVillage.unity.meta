@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6373b79c8a542f946b1d815e2b792c0e
+timeCreated: 1475086067
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Scenes/ExampleMountainVillage.unity
+  uploadId: 635875

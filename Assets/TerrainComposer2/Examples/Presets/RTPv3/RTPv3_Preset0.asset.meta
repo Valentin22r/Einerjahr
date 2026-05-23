@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4204d71e9db3da947bdb75c9e3aee71a
+timeCreated: 1490476958
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/RTPv3/RTPv3_Preset0.asset
+  uploadId: 635875

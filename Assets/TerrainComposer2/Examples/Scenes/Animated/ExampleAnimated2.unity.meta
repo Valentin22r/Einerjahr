@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0e8ca74b097be8946afd16ee574d301c
+timeCreated: 1475086092
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Scenes/Animated/ExampleAnimated2.unity
+  uploadId: 635875

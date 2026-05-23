@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4df76ec842ac1744a9bd842f2940c626
+timeCreated: 1466705571
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Layers/CollisionHeight.prefab
+  uploadId: 635875

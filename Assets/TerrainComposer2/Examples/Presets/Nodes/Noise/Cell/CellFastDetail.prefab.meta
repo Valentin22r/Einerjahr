@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 60d52fa51180a1d48be124b5ef263b3e
+timeCreated: 1474974365
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Noise/Cell/CellFastDetail.prefab
+  uploadId: 635875

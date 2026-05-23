@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b59dae9938fba8945ae98b929fccd23c
+timeCreated: 1487790620
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/1_Splatmap/BuildingsFloor.prefab
+  uploadId: 635875

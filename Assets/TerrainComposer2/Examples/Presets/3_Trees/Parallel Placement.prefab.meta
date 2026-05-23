@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c6ddc8f3901fb7b40817ee690770c3be
+timeCreated: 1466710420
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/3_Trees/Parallel Placement.prefab
+  uploadId: 635875

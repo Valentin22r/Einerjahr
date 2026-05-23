@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 79fdf661a84be6446888db0c8c21ecd4
+timeCreated: 1474925789
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Noise/Jordan/JordanDetail.prefab
+  uploadId: 635875

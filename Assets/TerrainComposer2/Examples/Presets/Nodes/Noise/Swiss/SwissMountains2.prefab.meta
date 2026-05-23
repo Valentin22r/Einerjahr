@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 28590f2376bbe82429f0731e1266b46b
+timeCreated: 1474926639
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Noise/Swiss/SwissMountains2.prefab
+  uploadId: 635875

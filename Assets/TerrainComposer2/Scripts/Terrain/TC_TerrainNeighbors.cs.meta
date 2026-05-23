@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 2b176d22ffcddbe43ae98703a9a77148
+timeCreated: 1466278223
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Scripts/Terrain/TC_TerrainNeighbors.cs
+  uploadId: 635875

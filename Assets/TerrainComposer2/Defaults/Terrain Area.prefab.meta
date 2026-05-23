@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d2fec30abca13c94f8e913cc9b3c7a40
+timeCreated: 1466498701
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Defaults/Terrain Area.prefab
+  uploadId: 635875

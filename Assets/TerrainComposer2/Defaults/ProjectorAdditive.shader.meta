@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5700dcfa727a3714d985d11e8c354a9c
+timeCreated: 1498893017
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Defaults/ProjectorAdditive.shader
+  uploadId: 635875

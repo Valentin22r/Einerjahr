@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c31e72ca53a625a40b6e106a5a91bf9e
+timeCreated: 1474926744
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/Nodes/Noise/IQ/IQDetail.prefab
+  uploadId: 635875

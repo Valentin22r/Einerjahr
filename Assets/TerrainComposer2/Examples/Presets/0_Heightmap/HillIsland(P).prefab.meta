@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 555ea245bcc24a1488e8beb8f77726bf
+timeCreated: 1466355528
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 65563
+  packageName: Terrain Composer 2
+  packageVersion: 2.91
+  assetPath: Assets/TerrainComposer2/Examples/Presets/0_Heightmap/HillIsland(P).prefab
+  uploadId: 635875
