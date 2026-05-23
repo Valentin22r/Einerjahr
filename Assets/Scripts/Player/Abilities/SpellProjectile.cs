@@ -35,6 +35,7 @@ public class SpellProjectile : MonoBehaviour
     public LayerMask explosionMask = ~0;
 
     [HideInInspector] public Collider ignoreCollider;
+    [HideInInspector] public string sourceSpellId;
 
     Vector3 direction = Vector3.forward;
     bool consumed;
@@ -81,7 +82,10 @@ public class SpellProjectile : MonoBehaviour
 
         var directTarget = hitCollider != null ? hitCollider.GetComponentInParent<Damageable>() : null;
         if (directTarget != null && damage > 0f)
-            directTarget.ApplyDamage(damage, point, normal);
+        {
+            bool killed = directTarget.ApplyDamage(damage, point, normal);
+            if (killed) SpellProgression.GrantKill(sourceSpellId);
+        }
 
         if (explosionRadius > 0f && explosionDamage > 0f)
             ApplyExplosionDamage(point, directTarget);
@@ -104,7 +108,8 @@ public class SpellProjectile : MonoBehaviour
             Vector3 nrm = h.transform.position - center;
             nrm.y = 0f;
             nrm = nrm.sqrMagnitude < 0.0001f ? Vector3.up : nrm.normalized;
-            d.ApplyDamage(explosionDamage, hp, nrm);
+            bool killed = d.ApplyDamage(explosionDamage, hp, nrm);
+            if (killed) SpellProgression.GrantKill(sourceSpellId);
         }
     }
 }

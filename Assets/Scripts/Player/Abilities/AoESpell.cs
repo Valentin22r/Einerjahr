@@ -19,6 +19,8 @@ public class AoESpell : MonoBehaviour
     [Tooltip("LayerMask des cibles potentielles. Utilise les couches des cibles, pas le sol.")]
     public LayerMask targetMask = ~0;
 
+    [HideInInspector] public string sourceSpellId;
+
     public void Configure(float duration, float tickInterval, float radius, float damagePerTick, LayerMask targetMask)
     {
         this.duration = duration;
@@ -54,7 +56,8 @@ public class AoESpell : MonoBehaviour
                 if (normal.sqrMagnitude < 0.0001f) normal = Vector3.up;
                 else normal.Normalize();
 
-                d.ApplyDamage(damagePerTick, hitPoint, normal);
+                bool killed = d.ApplyDamage(damagePerTick, hitPoint, normal);
+                if (killed) SpellProgression.GrantKill(sourceSpellId);
             }
 
             yield return new WaitForSeconds(tickInterval);

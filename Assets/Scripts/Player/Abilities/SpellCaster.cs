@@ -209,12 +209,18 @@ public class SpellCaster : MonoBehaviour
         if (s == null || s.projectilePrefab == null) return;
         if (!IsProjectileUnlocked(CurrentProjectileIndex)) return;
         if (!TryConsumeBlood(s.bloodCost)) return;
-        projectileNextCastTime = Time.time + s.cooldown;
+
+        int progLevel = SpellProgression.GetLevel(s.name);
+        float progDmg = SpellProgression.DamageMultiplier(progLevel);
+        float progRadius = SpellProgression.RadiusMultiplier(progLevel);
+        float progCdMul = SpellProgression.CooldownMultiplier(progLevel);
+
+        projectileNextCastTime = Time.time + s.cooldown * progCdMul;
 
         bool crit = Random.value < s.critChance;
         float scaleMul = crit ? s.critScaleMultiplier : 1f;
-        float damageMul = crit ? s.critDamageMultiplier : 1f;
-        float radiusMul = crit ? s.critRadiusMultiplier : 1f;
+        float damageMul = (crit ? s.critDamageMultiplier : 1f) * progDmg;
+        float radiusMul = (crit ? s.critRadiusMultiplier : 1f) * progRadius;
 
         float explosionRadius = s.explosionRadius * radiusMul;
         if (crit && explosionRadius < s.critMinExplosionRadius)
@@ -257,6 +263,7 @@ public class SpellCaster : MonoBehaviour
         projectile.explosionDamage = explosionDamage;
         projectile.explosionMask = s.explosionMask;
         projectile.ignoreCollider = playerCollider;
+        projectile.sourceSpellId = s.name;
         projectile.Launch(direction);
     }
 
@@ -309,11 +316,13 @@ public class SpellCaster : MonoBehaviour
             alignment = TextAnchor.LowerLeft
         };
 
+        string projLevel = CurrentProjectile != null ? $" L{SpellProgression.GetLevel(CurrentProjectile.name)}" : "";
+        string groundLevel = CurrentGround != null ? $" L{SpellProgression.GetLevel(CurrentGround.name)}" : "";
         string proj = CurrentProjectile != null
-            ? (IsProjectileUnlocked(CurrentProjectileIndex) ? CurrentProjectile.displayName : $"🔒 {CurrentProjectile.displayName}")
+            ? (IsProjectileUnlocked(CurrentProjectileIndex) ? $"{CurrentProjectile.displayName}{projLevel}" : $"🔒 {CurrentProjectile.displayName}")
             : "—";
         string ground = CurrentGround != null
-            ? (IsGroundUnlocked(CurrentGroundIndex) ? CurrentGround.displayName : $"🔒 {CurrentGround.displayName}")
+            ? (IsGroundUnlocked(CurrentGroundIndex) ? $"{CurrentGround.displayName}{groundLevel}" : $"🔒 {CurrentGround.displayName}")
             : "—";
 
         float h = hudFontSize * 1.6f;
@@ -346,11 +355,17 @@ public class SpellCaster : MonoBehaviour
         if (s == null || s.aoeEffectPrefab == null) return;
         if (!IsGroundUnlocked(CurrentGroundIndex)) return;
         if (!TryConsumeBlood(s.bloodCost)) return;
-        aoeNextCastTime = Time.time + s.cooldown;
+
+        int progLevel = SpellProgression.GetLevel(s.name);
+        float progDmg = SpellProgression.DamageMultiplier(progLevel);
+        float progRadius = SpellProgression.RadiusMultiplier(progLevel);
+        float progCdMul = SpellProgression.CooldownMultiplier(progLevel);
+
+        aoeNextCastTime = Time.time + s.cooldown * progCdMul;
 
         bool crit = Random.value < s.critChance;
-        float radius = s.radius * (crit ? s.critRadiusMultiplier : 1f);
-        float damage = s.damagePerTick * (crit ? s.critDamageMultiplier : 1f);
+        float radius = s.radius * (crit ? s.critRadiusMultiplier : 1f) * progRadius;
+        float damage = s.damagePerTick * (crit ? s.critDamageMultiplier : 1f) * progDmg;
         float scale = s.effectScale * (crit ? s.critScaleMultiplier : 1f);
 
         if (crit && logCrits) Debug.Log($"[SpellCaster] CRIT AoE! {s.displayName} ×{s.critDamageMultiplier} damage, ×{s.critRadiusMultiplier} radius ({radius:F1} m)");
@@ -361,6 +376,7 @@ public class SpellCaster : MonoBehaviour
         var aoe = go.GetComponent<AoESpell>();
         if (aoe == null) aoe = go.AddComponent<AoESpell>();
         aoe.Configure(s.duration, s.tickInterval, radius, damage, s.targetMask);
+        aoe.sourceSpellId = s.name;
 
         Destroy(go, s.duration + 2f);
     }
