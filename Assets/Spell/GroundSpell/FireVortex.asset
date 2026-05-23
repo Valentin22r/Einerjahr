@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ed2e418c23d58408cb48a7d5a8402f, type: 3}
+  m_Name: FireVortex
+  m_EditorClassIdentifier: Assembly-CSharp::GroundSpellData
+  displayName: FireVortex
+  startsLocked: 0
+  bloodCost: 25
+  aoeEffectPrefab: {fileID: 6844273986923257540, guid: dee07cb3ed72b59499446ff2189aff0a, type: 3}
+  indicatorPrefab: {fileID: 0}
+  radius: 5
+  duration: 5
+  tickInterval: 0.5
+  damagePerTick: 15
+  cooldown: 2
+  effectScale: 5
+  indicatorScale: -1
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  critChance: 0.01
+  critDamageMultiplier: 5
+  critRadiusMultiplier: 10
+  critScaleMultiplier: 10
