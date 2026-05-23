@@ -8,6 +8,15 @@ public class Damageable : MonoBehaviour
     public float maxHealth = 100f;
     public float health = 100f;
 
+    [Header("Intégration joueur / ennemi")]
+    [Tooltip("Si vrai et qu'un PlayerDamage est trouvé en parent, les dégâts y sont forwardés (déclenche rage et Die du joueur).")]
+    public bool forwardToPlayerDamage = true;
+    [Tooltip("Si vrai et qu'un EnemyStats est trouvé en parent, les dégâts y sont forwardés (déclenche TakeDamage et Die de l'ennemi).")]
+    public bool forwardToEnemyStats = true;
+
+    PlayerDamage cachedPlayerDamage;
+    EnemyStats cachedEnemyStats;
+
     [Header("Sang en cours de combat")]
     [Tooltip("Prefab de sang spawned à chaque coup reçu (KriptoFX VolumetricBloodFX).")]
     public GameObject hitBloodPrefab;
@@ -28,11 +37,29 @@ public class Damageable : MonoBehaviour
 
     public bool IsDead { get; private set; }
 
+    void Awake()
+    {
+        if (forwardToPlayerDamage) cachedPlayerDamage = GetComponentInParent<PlayerDamage>();
+        if (forwardToEnemyStats) cachedEnemyStats = GetComponentInParent<EnemyStats>();
+    }
+
     public void ApplyDamage(float amount, Vector3 hitPoint, Vector3 hitNormal)
     {
         if (IsDead || amount <= 0f) return;
 
         BloodSpawner.Spawn(hitBloodPrefab, hitPoint, hitNormal, hitBloodLifetime);
+
+        if (cachedPlayerDamage != null)
+        {
+            cachedPlayerDamage.TakeDamage(amount);
+            return;
+        }
+
+        if (cachedEnemyStats != null)
+        {
+            cachedEnemyStats.TakeDamage(Mathf.RoundToInt(amount));
+            return;
+        }
 
         health -= amount;
         if (health <= 0f) Die();
