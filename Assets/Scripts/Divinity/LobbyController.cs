@@ -25,6 +25,11 @@ public class LobbyController : MonoBehaviour
     public TMP_Text selectedDivinityStatsText;
     public Image selectedDivinityIcon;
 
+    [Header("Affichage compte (XP / niveau)")]
+    public TMP_Text accountLevelText;
+    public TMP_Text accountXpText;
+    public Image accountXpBar; // Image en mode Filled (Horizontal)
+
     [Header("Affichage économie / upgrades")]
     public TMP_Text mythrilText;
     public TMP_Text weaponDamageLevelText;
@@ -36,6 +41,11 @@ public class LobbyController : MonoBehaviour
     public TMP_Text damageUpgradeCostText;
     public TMP_Text rangeUpgradeCostText;
     public TMP_Text speedUpgradeCostText;
+
+    [Header("Difficulté")]
+    public TMP_Text difficultyText;
+    public Button difficultyPrevButton;
+    public Button difficultyNextButton;
 
     [Header("Play")]
     public string gameSceneName = "SampleScene";
@@ -50,6 +60,10 @@ public class LobbyController : MonoBehaviour
     {
         EnsureDefaultDivinity();
         BuildDivinityButtons();
+
+        if (difficultyPrevButton != null) difficultyPrevButton.onClick.AddListener(PrevDifficulty);
+        if (difficultyNextButton != null) difficultyNextButton.onClick.AddListener(NextDifficulty);
+
         RefreshAll();
     }
 
@@ -95,7 +109,25 @@ public class LobbyController : MonoBehaviour
     {
         RefreshDivinityDisplay();
         RefreshUpgradeDisplay();
+        RefreshDifficultyDisplay();
         RefreshPlayButton();
+    }
+
+    void RefreshDifficultyDisplay()
+    {
+        if (difficultyText != null) difficultyText.text = $"Difficulté : {DifficultySelection.Current}";
+    }
+
+    public void NextDifficulty()
+    {
+        int n = System.Enum.GetValues(typeof(Difficulty)).Length;
+        DifficultySelection.Current = (Difficulty)(((int)DifficultySelection.Current + 1) % n);
+    }
+
+    public void PrevDifficulty()
+    {
+        int n = System.Enum.GetValues(typeof(Difficulty)).Length;
+        DifficultySelection.Current = (Difficulty)(((int)DifficultySelection.Current - 1 + n) % n);
     }
 
     void RefreshDivinityDisplay()
@@ -132,6 +164,13 @@ public class LobbyController : MonoBehaviour
     {
         int mythril = PlayerProgress.Mythril;
         if (mythrilText != null) mythrilText.text = $"Mythril : {mythril}";
+
+        int lvl = AccountProgress.Level;
+        if (accountLevelText != null) accountLevelText.text = $"Niveau {lvl}";
+        int into = AccountProgress.XpIntoCurrentLevel;
+        int need = AccountProgress.XpNeededForNextLevel;
+        if (accountXpText != null) accountXpText.text = need > 0 ? $"{into} / {need} XP" : "MAX";
+        if (accountXpBar != null) accountXpBar.fillAmount = need > 0 ? (float)into / need : 1f;
 
         SetLevelText(weaponDamageLevelText, "Dégâts", PlayerProgress.WeaponDamageLevel);
         SetLevelText(weaponRangeLevelText, "Portée", PlayerProgress.WeaponRangeLevel);

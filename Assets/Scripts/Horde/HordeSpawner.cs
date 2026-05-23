@@ -96,19 +96,20 @@ public class HordeSpawner : MonoBehaviour
     float CurrentInterval()
     {
         float minutes = ElapsedSeconds / 60f;
-        return Mathf.Max(minInterval, startInterval - intervalDecreasePerMinute * minutes);
+        float baseInterval = Mathf.Max(minInterval, startInterval - intervalDecreasePerMinute * minutes);
+        return baseInterval / Mathf.Max(0.1f, DifficultySelection.SpawnRateMultiplier(DifficultySelection.Current));
     }
 
     float CurrentHPScale()
     {
         float minutes = ElapsedSeconds / 60f;
-        return 1f + hpScalePerMinute * minutes;
+        return (1f + hpScalePerMinute * minutes) * DifficultySelection.EnemyHpMultiplier(DifficultySelection.Current);
     }
 
     float CurrentDamageScale()
     {
         float minutes = ElapsedSeconds / 60f;
-        return 1f + damageScalePerMinute * minutes;
+        return (1f + damageScalePerMinute * minutes) * DifficultySelection.EnemyDamageMultiplier(DifficultySelection.Current);
     }
 
     int CurrentMythrilBonus()
