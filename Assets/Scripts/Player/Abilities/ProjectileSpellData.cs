@@ -10,10 +10,6 @@ public class ProjectileSpellData : ScriptableObject
     [Tooltip("Si vrai, le spell démarre verrouillé. Appeler SpellCaster.UnlockProjectile pour le débloquer.")]
     public bool startsLocked = false;
 
-    [Header("Coût")]
-    [Tooltip("Coût en sang (PlayerStats.Blood) pour caster ce spell.")]
-    [Min(0f)] public float bloodCost = 10f;
-
     [Header("─── 1. Casting (joué au muzzle) ───")]
     public GameObject castFxPrefab;
     [Tooltip("Échelle visuelle (1 = taille du prefab).")]

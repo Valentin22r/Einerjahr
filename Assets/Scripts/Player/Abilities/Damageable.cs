@@ -43,26 +43,32 @@ public class Damageable : MonoBehaviour
         if (forwardToEnemyStats) cachedEnemyStats = GetComponentInParent<EnemyStats>();
     }
 
-    public void ApplyDamage(float amount, Vector3 hitPoint, Vector3 hitNormal)
+    /// <summary>
+    /// Applique des dégâts. Retourne true si la cible a été tuée par ce coup.
+    /// Utilisé par les spells pour attribuer le kill credit (progression).
+    /// </summary>
+    public bool ApplyDamage(float amount, Vector3 hitPoint, Vector3 hitNormal)
     {
-        if (IsDead || amount <= 0f) return;
+        if (IsDead || amount <= 0f) return false;
 
         BloodSpawner.Spawn(hitBloodPrefab, hitPoint, hitNormal, hitBloodLifetime);
 
         if (cachedPlayerDamage != null)
         {
             cachedPlayerDamage.TakeDamage(amount);
-            return;
+            return false;
         }
 
         if (cachedEnemyStats != null)
         {
-            cachedEnemyStats.TakeDamage(Mathf.RoundToInt(amount));
-            return;
+            int dmgInt = Mathf.RoundToInt(amount);
+            cachedEnemyStats.TakeDamage(dmgInt);
+            return cachedEnemyStats.HP <= 0;
         }
 
         health -= amount;
-        if (health <= 0f) Die();
+        if (health <= 0f) { Die(); return true; }
+        return false;
     }
 
     void Die()

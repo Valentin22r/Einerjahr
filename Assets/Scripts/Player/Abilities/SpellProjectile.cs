@@ -35,6 +35,7 @@ public class SpellProjectile : MonoBehaviour
     public LayerMask explosionMask = ~0;
 
     [HideInInspector] public Collider ignoreCollider;
+    [HideInInspector] public string sourceSpellId;
 
     Vector3 direction = Vector3.forward;
     bool consumed;
@@ -79,32 +80,81 @@ public class SpellProjectile : MonoBehaviour
             Destroy(fx, impactFxLifetime);
         }
 
-        var directTarget = hitCollider != null ? hitCollider.GetComponentInParent<Damageable>() : null;
-        if (directTarget != null && damage > 0f)
-            directTarget.ApplyDamage(damage, point, normal);
+        Damageable directDamageable = null;
+        if (damage > 0f)
+        {
+            bool killed = ApplyDamageTo(hitCollider, damage, point, normal, out directDamageable);
+            if (killed) SpellProgression.GrantKill(sourceSpellId);
+        }
 
         if (explosionRadius > 0f && explosionDamage > 0f)
-            ApplyExplosionDamage(point, directTarget);
+            ApplyExplosionDamage(point, directDamageable, hitCollider);
 
         Destroy(gameObject);
     }
 
-    void ApplyExplosionDamage(Vector3 center, Damageable skipDirect)
+    /// <summary>
+    /// Inflige des dégâts au target. Essaie Damageable d'abord, puis fallback EnemyStats.
+    /// Retourne true si le target a été tué.
+    /// </summary>
+    static bool ApplyDamageTo(Collider c, float dmg, Vector3 point, Vector3 normal, out Damageable damageableHit)
+    {
+        damageableHit = null;
+        if (c == null) return false;
+
+        var d = c.GetComponentInParent<Damageable>();
+        if (d != null)
+        {
+            damageableHit = d;
+            return d.ApplyDamage(dmg, point, normal);
+        }
+
+        var e = c.GetComponentInParent<EnemyStats>();
+        if (e != null)
+        {
+            int before = e.HP;
+            e.TakeDamage(Mathf.RoundToInt(dmg));
+            return e.HP <= 0 && before > 0;
+        }
+
+        var pd = c.GetComponentInParent<PlayerDamage>();
+        if (pd != null) pd.TakeDamage(dmg);
+
+        return false;
+    }
+
+    void ApplyExplosionDamage(Vector3 center, Damageable skipDamageable, Collider skipCollider)
     {
         var hits = Physics.OverlapSphere(center, explosionRadius, explosionMask, QueryTriggerInteraction.Ignore);
-        var seen = new HashSet<Damageable>();
-        if (skipDirect != null) seen.Add(skipDirect);
+        var seenDamageables = new HashSet<Damageable>();
+        var seenEnemies = new HashSet<EnemyStats>();
+        if (skipDamageable != null) seenDamageables.Add(skipDamageable);
 
         foreach (var h in hits)
         {
-            var d = h.GetComponentInParent<Damageable>();
-            if (d == null || d.IsDead || !seen.Add(d)) continue;
+            if (h == skipCollider) continue;
 
             Vector3 hp = h.ClosestPoint(center);
             Vector3 nrm = h.transform.position - center;
             nrm.y = 0f;
             nrm = nrm.sqrMagnitude < 0.0001f ? Vector3.up : nrm.normalized;
-            d.ApplyDamage(explosionDamage, hp, nrm);
+
+            var d = h.GetComponentInParent<Damageable>();
+            if (d != null)
+            {
+                if (d.IsDead || !seenDamageables.Add(d)) continue;
+                bool killed = d.ApplyDamage(explosionDamage, hp, nrm);
+                if (killed) SpellProgression.GrantKill(sourceSpellId);
+                continue;
+            }
+
+            var e = h.GetComponentInParent<EnemyStats>();
+            if (e != null && seenEnemies.Add(e))
+            {
+                int before = e.HP;
+                e.TakeDamage(Mathf.RoundToInt(explosionDamage));
+                if (e.HP <= 0 && before > 0) SpellProgression.GrantKill(sourceSpellId);
+            }
         }
     }
 }
